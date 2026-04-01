@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山东临兴灯具有限公司 - 太阳能路灯厂家直销</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 15px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo-area {
+            width: 80px;
+            height: 80px;
+            border: 2px solid #fff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #fff;
+        }
+        .logo-area img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .header-title {
+            flex: 1;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+        .header-contact {
+            font-size: 16px;
+            text-align: right;
+        }
+        .header-contact p {
+            margin: 5px 0;
+        }
+        nav {
+            background: #fff;
+            padding: 10px 5%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 10;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #1e3c72;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .search-box input {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            width: 220px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .search-box input:focus {
+            border-color: #1e3c72;
+        }
+        .search-box button {
+            padding: 8px 12px;
+            background: #1e3c72;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .search-box button:hover {
+            background: #2a5298;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+        .modal-content h2 {
+            margin-bottom: 20px;
+            color: #1e3c72;
+            text-align: center;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: #1e3c72;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+            text-decoration:none;
+            display:block;
+            text-align:center;
+        }
+        .submit-btn:hover {
+            background: #2a5298;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 5%;
+        }
+        .section-title {
+            font-size: 24px;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1e3c72;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .back-home {
+            font-size: 14px;
+            color: #fff;
+            background: #1e3c72;
+            padding: 5px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        .product-img {
+            width: 100%;
+            height: auto;
+            min-height: 200px;
+            object-fit: contain;
+            background: #f8f8f8;
+            display: block;
+        }
+        .product-info {
+            padding: 15px;
+        }
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .product-price {
+            font-size: 20px;
+            color: #e74c32;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .price-tip {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+        .product-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .main-tag {
+            display: inline-block;
+            background: #f39c12;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        .no-result {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            margin: 50px 0;
+        }
+        .no-result h2 {
+            color: #e74c32;
+            margin-bottom: 20px;
+        }
+        .no-result p {
+            font-size: 16px;
+            margin: 10px 0;
+            color: #333;
+        }
+        .no-result .phone {
+            font-size: 22px;
+            color: #1e3c72;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .btn-home {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #1e3c72;
+            color: #fff;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        .pop-desc{
+            margin:15px 0;
+            font-size:16px;
+            color:#333;
+            line-height:1.8;
+            text-align:center;
+        }
+        footer {
+            background: #1e3c72;
+            color: white;
+            padding: 30px 5%;
+            margin-top: 50px;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .footer-section h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .footer-section p a {
+            color:#fff;
+            text-decoration:none;
+            cursor:pointer;
+        }
+        .footer-section p a:hover {
+            text-decoration:underline;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px rgba(255,255,255,0.2) solid;
+        }
+        @media (max-width: 768px) {
+            header {flex-direction:column;text-align:center;gap:10px;}
+            .header-title {font-size:22px;margin-left:0;}
+            nav {flex-direction:column;gap:15px;}
+            .nav-links {gap:15px;}
+            .search-box {width:100%;justify-content: center;}
+            .search-box input {width: 160px;}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-area">
+        <img src="logo00.jpg" alt="山东临兴灯具logo">
+    </div>
+    <div class="header-title">山东临兴灯具有限公司</div>
+    <div class="header-contact">
+        <p>联系电话：15806922666</p>
+        <p>厂址：山东临沂</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-links">
+        <a href="javascript:resetSearch()">首页</a>
+        <a href="javascript:showFeatured()">主推产品</a>
+        <a href="javascript:showAll()">全部产品</a>
+        <a href="#contact">联系我们</a>
+    </div>
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="搜索：公园、篮球场、学校...">
+        <button onclick="searchProducts()">搜索</button>
+    </div>
+</nav>
+
+<div class="container">
+    <div id="searchResultArea"></div>
+    <section id="featuredSection">
+        <h2 class="section-title">
+            主推产品
+            <a href="javascript:resetSearch()" class="back-home">返回主页</a>
+        </h2>
+        <div class="product-grid">
+            <div class="product-card" data-name="标准太阳能路灯" data-key="标准 路灯 公园 景区 仿古街 回纹 中式 学校 校园 公路 马路 续航强 光强">
+                <img src="ld/ludeng01.jpg" class="product-img" alt="标准太阳能路灯">
+                <div class="product-info">
+                    <span class="main-tag">主推款</span>
+                    <h3 class="product-name">标准太阳能路灯</h3>
+                    <p class="product-price">¥100.00</p>
+                    <p class="price-tip">价格仅供参考，详细请联系我们</p>
+                    <p class="product-desc">市政工程专用，高亮度、长续航，适用于乡村道路、小区道路</p>
+                </div>
+            </div>
+            <div class="product-card" data-name="回纹太阳能路灯" data-key="回纹 路灯 公园 景区 仿古街 中式 古镇 园林 优雅 精致 古风 端庄 景区建设">
+                <img src="ld/ludeng02.jpg" class="product-img" alt="回纹太阳能路灯">
+                <div class="product-info">
+                    <span class="main-tag">主推款</span>
+                    <h3 class="product-name">回纹太阳能路灯</h3>
+                    <p class="product-price">¥100.00</p>
+                    <p class="price-tip">价格仅供参考，详细请联系我们</p>
+                    <p class="product-desc">传统回纹设计，美观大气，适用于景区、公园、仿古街道</p>
+                </div>
+            </div>
+            <div class="product-card" data-name="中式太阳能路灯" data-key="中式 路灯 公园 景区 古镇 庭院 园林 古风 优雅 精致 端庄 简约 景区建设">
+                <img src="ld/ludeng03.jpg" class="product-img" alt="中式太阳能路灯">
+                <div class="product-info">
+                    <span class="main-tag">主推款</span>
+                    <h3 class="product-name">中式太阳能路灯</h3>
+                    <p class="product-price">¥100.00</p>
+                    <p class="price-tip">价格仅供参考，详细请联系我们</p>
+                    <p class="product-desc">中式古典风格，融合传统元素，适用于古镇、园林、庭院</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="allSection">
+        <h2 class="section-title">
+            全部产品
+            <a href="javascript:resetSearch()" class="back-home">返回主页</a>
+        </h2>
+        <div class="product-grid">
+            <div class="product-card" data-name="玉兰灯（中华灯）" data-key="玉兰灯 中华灯 多头 景观 广场 景区 市政 高端 大气 中式 古风 优雅 精致 端庄">
+                <img src="ld/ludeng04.jpg" class="product-img" alt="玉兰灯（中华灯）">
+                <div class="product-info">
+                    <h3 class="product-name">玉兰灯（中华灯）</h3>
+                    <p class="product-price">¥100.00</p>
+                    <p class="price-tip">价格仅供参考，详细请联系我们</p>
+                    <p class="product-desc">多头景观设计，大气美观，适用于广场、景区、市政道路、仿古街亮化</p>
+                </div>
+            </div>
+            <div class="product-card" data-name="中国结太阳能路灯" data-key="中国结 路灯 城市 街道 节日 亮化 简约 端庄">
+                <img src="ld/ludeng05.jpg" class="product-img" alt="中国结太阳能路灯">
+                <div class="product-info">
+                    <h3 class="product-name">中国结太阳能路灯</h3>
+                    <p class="product-price">¥100.00</p>
+                    <p class="price-tip">价格仅供参考，详细请联系我们</p>
+                    <p class="product-desc">中国结造型，喜庆吉祥，适用于节日亮化、城市主干道</p>
+                </div>
+            </div>
+            <div class="product-card" data-name="一体化太阳能路灯" data-key="一体化 路灯 农村 庭院 家用 自家使用 安装方便 续航强 简约">
+                <img src="ld/ludeng06.png" class="product-img" alt="一体化太阳能路灯">
+                <div class="product-info">
+                    <h3 class="product-name">一体化太阳能路灯</h3>
+                    <p class="product-price">¥100.00</p>
+                    <p class="price-tip">价格仅供参考，详细请联系我们</p>
+                    <p class="product-desc">一体化设计，安装便捷，适用于农村改造、庭院照明</p>
+                </div>
+            </div>
+            <div class="product-card" data-name="高杆太阳能路灯" data-key="高杆 路灯 广场 篮球场 球场 停车场 大范围 学校 校园 公路 马路 光强">
+                <img src="ld/ludeng07.jpg" class="product-img" alt="高杆太阳能路灯">
+                <div class="product-info">
+                    <h3 class="product-name">高杆太阳能路灯</h3>
+                    <p class="product-price">¥100.00</p>
+                    <p class="price-tip">价格仅供参考，详细请联系我们</p>
+                    <p class="product-desc">高杆设计，大范围照明，适用于广场、球场、停车场</p>
+                </div>
+            </div>
+            <div class="product-card" data-name="庭院太阳能路灯" data-key="庭院 路灯 别墅 小区 花园 家用 自家使用 优雅 精致 可爱 简约">
+                <img src="ld/ludeng08.jpg" class="product-img" alt="庭院太阳能路灯">
+                <div class="product-info">
+                    <h3 class="product-name">庭院太阳能路灯</h3>
+                    <p class="product-price">¥100.00</p>
+                    <p class="price-tip">价格仅供参考，详细请联系我们</p>
+                    <p class="product-desc">美观实用，适用于别墅、小区、花园照明</p>
+                </div>
+            </div>
+            <div class="product-card" data-name="景观太阳能路灯" data-key="景观 路灯 公园 景区 步行街 美化 优雅 精致 端庄 景区建设">
+                <img src="ld/ludeng09.jpg" class="product-img" alt="景观太阳能路灯">
+                <div class="product-info">
+                    <h3 class="product-name">景观太阳能路灯</h3>
+                    <p class="product-price">¥100.00</p>
+                    <p class="price-tip">价格仅供参考，详细请联系我们</p>
+                    <p class="product-desc">造型多样，美化环境，适用于景区、公园、步行街</p>
+                </div>
+            </div>
+            <div class="product-card" data-name="太阳能草坪灯" data-key="草坪灯 草坪 花园 绿化 家用 自家使用 可爱 简约 小巧">
+                <img src="ld/ludeng10.png" class="product-img" alt="太阳能草坪灯">
+                <div class="product-info">
+                    <h3 class="product-name">太阳能草坪灯</h3>
+                    <p class="product-price">¥100.00</p>
+                    <p class="price-tip">价格仅供参考，详细请联系我们</p>
+                    <p class="product-desc">小巧美观，适用于草坪、花园、绿化带照明</p>
+                </div>
+            </div>
+            <div class="product-card" data-name="太阳能投光灯" data-key="投光灯 厂房 工地 广告牌 大功率 光强 续航强">
+             <img src="ld/ludeng11.jpg" class="product-img" alt="太阳能投光灯">                <div class="product-info">
+                    <h3 class="product-name">太阳能投光灯</h3>
+                    <p class="product-price">¥100.00</p>
+                    <p class="price-tip">价格仅供参考，详细请联系我们</p>
+                    <p class="product-desc">大功率照明，适用于厂房、广告牌、工地照明</p>
+                </div>
+            </div>
+            <div class="product-card" data-name="太阳能路灯杆" data-key="路灯杆 工程 定制 杆子 公路 马路 学校 校园">
+                <img src="ld/ludeng12.jpg" class="product-img" alt="太阳能路灯杆">
+                <div class="product-info">
+                    <h3 class="product-name">太阳能路灯杆</h3>
+                    <p class="product-price">¥100.00</p>
+                    <p class="price-tip">价格仅供参考，详细请联系我们</p>
+                    <p class="product-desc">定制路灯杆，配套太阳能路灯，适用于各类工程</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer id="contact">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>关于我们</h3>
+            <p>山东临兴灯具有限公司是专业的太阳能路灯厂家，源头工厂，品质保障，承接各类路灯工程</p>
+        </div>
+        <div class="footer-section">
+            <h3>联系我们</h3>
+            <p>联系电话：15806922666</p>
+            <p>厂址：山东临沂</p>
+            <p>服务时间：周一至周日 8:00-18:00</p>
+        </div>
+        <div class="footer-section">
+            <h3>产品服务</h3>
+            <p><a href="javascript:showDingzhi()">太阳能路灯定制</a></p>
+            <p><a href="javascript:showAnzhuang()">路灯工程安装</a></p>
+            <p><a href="javascript:showShouhou()">售后维修服务</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 山东临兴灯具有限公司 版权所有</p>
+    </div>
+</footer>
+
+<script>
+function closeAndHome(){const o=document.querySelectorAll(".modal");o.forEach(e=>{e.style.display="none",setTimeout(()=>e.remove(),300)}),resetSearch()}
+function closeModal(o){o.closest&&(o=o.closest(".modal")),o.style.display="none",setTimeout(()=>o.remove(),300)}
+function resetSearch(){document.getElementById("searchResultArea").innerHTML="",document.getElementById("featuredSection").style.display="block",document.getElementById("allSection").style.display="block",document.getElementById("searchInput").value=""}
+function showFeatured(){resetSearch(),document.getElementById("allSection").style.display="none"}
+function showAll(){resetSearch()}
+function searchProducts(){let o=document.getElementById("searchInput").value.trim().toLowerCase();if(!o)return void resetSearch();let e=document.getElementsByClassName("product-card"),t=`<div class="section-title">搜索结果：${o}<a href="javascript:resetSearch()" class="back-home">返回主页</a></div><div class="product-grid">`,n=0;for(let a of e){let s=a.getAttribute("data-name")||"",i=a.getAttribute("data-key")||"";(s+" "+i).toLowerCase().includes(o)&&(t+=a.outerHTML,n=1)}t+="</div>",n||(t=`<div class="no-result"><h2>未找到产品</h2><p>请联系我们：15806922666</p><a href="javascript:resetSearch()" class="btn-home">返回</a></div>`),document.getElementById("searchResultArea").innerHTML=t,document.getElementById("featuredSection").style.display="none",document.getElementById("allSection").style.display="none"}
+document.getElementById("searchInput").onkeypress=o=>{if("Enter"===o.key)searchProducts()};
+for(let o of document.getElementsByClassName("product-card"))o.onclick=()=>alert("产品："+o.getAttribute("data-name")+"\n参考价：100元\n详情致电：15806922666");
+function showDingzhi(){let o=`<div class="modal" style="display:flex;"><div class="modal-content"><span class="close-modal" onclick="closeModal(this)">&times;</span><h2>太阳能路灯定制</h2><p class="pop-desc">支持根据场景、尺寸、亮度、外观定制，专业团队一对一设计方案，源头工厂生产，品质可靠，价格实惠。</p><p style="text-align:center;font-size:22px;color:#1e3c72;font-weight:bold;">15806922666</p><br><button onclick="closeAndHome()" class="submit-btn">返回主页</button></div></div>`;document.body.insertAdjacentHTML("beforeend",o)}
+function showAnzhuang(){let o=`<div class="modal" style="display:flex;"><div class="modal-content"><span class="close-modal" onclick="closeModal(this)">&times;</span><h2>路灯工程安装</h2><p class="pop-desc">专业施工团队，承接乡村道路、小区、公园、厂区、市政等各类路灯安装工程，标准化施工，安全高效，售后无忧。</p><p style="text-align:center;font-size:22px;color:#1e3c72;font-weight:bold;">15806922666</p><br><button onclick="closeAndHome()" class="submit-btn">返回主页</button></div></div>`;document.body.insertAdjacentHTML("beforeend",o)}
+function showShouhou(){let o=`<div class="modal" style="display:flex;"><div class="modal-content"><span class="close-modal" onclick="closeModal(this)">&times;</span><h2>售后维修服务</h2><p class="pop-desc">提供全方位售后保障，灯具故障快速排查、维修、更换，响应及时，上门服务，让您使用更放心。</p><p style="text-align:center;font-size:22px;color:#1e3c72;font-weight:bold;">15806922666</p><br><button onclick="closeAndHome()" class="submit-btn">返回主页</button></div></div>`;document.body.insertAdjacentHTML("beforeend",o)}
+</script>
+</body>
+</html>
